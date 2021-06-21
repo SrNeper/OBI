@@ -1,0 +1,3 @@
+language = "python3"
+run = "cd Ex_Nivel_Junior"
+#run = "python OBI21_PJ_Plano.py"
