@@ -33,6 +33,7 @@ idades.append(idades[0] - (sum(idades[1:])))
 #Mostra a idade do filho mais velho.
 print(f'\nO filho mais velho tem: {max(idades[1:])}')
 
+'''
 #Para fins de teste:
 
 idades.sort() #Poem as idades em ordem e atualiza a lista.
@@ -42,4 +43,4 @@ dIdades = {0:'do mais novo', 1:'do meio', 2:'do mais velho', 3:'da Mônica'}
 for i in range(4):
   print(f'\nA idade {dIdades[i]} é {idades[i]}')
 
-del(dIdades)
+'''
