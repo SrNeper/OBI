@@ -1,3 +1,8 @@
 language = "python3"
-run = "cd Ex_Nivel_Junior"
-#run = "python OBI21_PJ_Plano.py"
+
+#Ex_Nivel_?? = indique o nome da pasta.
+#OBI??       = indique o ano da prova.
+#P?_??       = indique o nivel e o nome do exercicio.
+
+#Roda os códigos do nivel Junior.
+run = "python Ex_Nivel_01/OBI21_P1_Tempo.py"
