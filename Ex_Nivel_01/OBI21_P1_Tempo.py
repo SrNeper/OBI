@@ -44,7 +44,7 @@ Tempo de Resposta Total para cada amigo.
 
 Exemplos 01:
 Entrada: 5 - R 2 - R 3 - T 5 - E 2 - E 3
-Saida: 2 6 - 3 6
+Saída: 2 6 - 3 6
 
 
 Exemplos 02:
@@ -52,7 +52,7 @@ Entrada: 14 - R 12 - T  2 - R 23 - T  3 - R 45
               E 45 - R 45 - E 23 - R 23 - T  2
               E 23 - R 34 - E 12 - E 34
 
-Saida: 12 13 - 23 8 - 34 2 - 45 -1
+Saída: 12 13 - 23 8 - 34 2 - 45 -1
 
 '''
 #RESUMO:
@@ -75,7 +75,7 @@ Saida: 12 13 - 23 8 - 34 2 - 45 -1
 #    E 45 -> Enviado  ==  add T +1
 #    R 45 -> Recebido ==  Como não houve resposta, T = -1
 
-#SAIDA: 45 -1
+#SAÍDA: 45 -1
 
 #Amigo: 23
 #Ex: R 23 -> Recebido        ==  add na lista de amigos
@@ -84,9 +84,9 @@ Saida: 12 13 - 23 8 - 34 2 - 45 -1
 #    R 23 -> Recebido        ==  Ignora pq já tá na lista
 #    E 23 -> Enviado         ==  add T +1
 
-#SAIDA: 23 4 
+#SAÍDA: 23 4 
 
-#Varios Amigos:
+#Vários Amigos:
 #Ex: R 12 -> Recebido        ==  add na lista de amigos -> [12]
 #    T  2 -> Tempo Resposta  ==  add T +2               -> (12, 2)
 #    R 23 -> Recebido        ==  add na lista de amigos -> [12, 23]
@@ -111,7 +111,7 @@ Saida: 12 13 - 23 8 - 34 2 - 45 -1
 
 #    Como o 45 não obteve resposta a sua ultima msg ele fica com -1
 
-#Saida: 12 13 - 23 8 - 34 2 - 45 -1
+#Saída: 12 13 - 23 8 - 34 2 - 45 -1
 
 
 #Se houver mais de um amigo, responda em ordem crescente
@@ -159,7 +159,7 @@ def getPosAmigo(amigo:int) -> int:
 
 def addTempo (tempo):
   
-  #Minha matriz é a variavel global, 'quadroMensagens'
+  #Minha matriz é a variável global, 'quadroMensagens'
   global quadroMensagens
 
   '''
@@ -297,20 +297,20 @@ amigosAdd       = set()
 #qtEntradas = int(input(''))
 
 exemplo_1 = ['R02','R03','T05','E02','E03']
-#Saida Esperada: 2 6 - 3 6
+#Saída Esperada: 2 6 - 3 6
 
 exemplo_2 = [
     'R12','T02','R23','T03',
     'R45','E45','R45','E23',
     'R23','T02','E23','R34',
     'E12','E34']
-#Saida Esperada: 23 8 - 45 -1
+#Saída Esperada: 23 8 - 45 -1
 
 exemplo_3 = ['R45','E45','R45']
-#Saida Esperada: 45 -1
+#Saída Esperada: 45 -1
 
 exemplo_4 = ['R23','T03','E23','R23','E23']
-#Saida Esperada: 23 4
+#Saída Esperada: 23 4
 
 
 test(exemplo_2)
