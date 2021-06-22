@@ -43,43 +43,15 @@ Exemplos:
   Saída   = S
 
 '''
-#Iniciando as Variaveis:
-#Dimensões da Caixa -> Altura, Largura e Comprimento.
-#OBS. NÃO NECESSARIAMENTE NESSA ORDEM. /\
-A = 0 
-B = 0 
-C = 0 
+#Bondinho é uma lista
+bondinho = []
 
-H = 0 #Altura da Janela
-L = 0 #Largura da Janela.
+#Cada entrada representa um N de passageiros.
+bondinho.append(int(input())) #<- Alunos
+bondinho.append(int(input())) #<- Monitores
 
-#Validando e Pegando as Dimensões.
-while not 1<= A <=100:
-  A= int(input("digite o valor de A:\t"))
-
-while not 1<= B <=100:
-  B= int(input("digite o valor de B:\t"))
-
-while not 1<= C <=100:
-  C= int(input("digite o valor de C:\t"))
-
-while not 1<= H <=100:
-  H= int(input("digite o valor de H:\t"))
-
-while not 1<= L <=100:
-  L= int(input("digite o valor de L:\t"))
-
-resposta = "N"
-
-if ( A <= H and B <= L  ): resposta = "S"
-if ( A <= L and B <= H  ): resposta = "S"
-if ( A <= H and C <= L  ): resposta = "S"
-if ( A <= L and C <= H  ): resposta = "S"
-if ( B <= H and C <= L  ): resposta = "S"
-if ( B <= L and C <= H  ): resposta = "S"
-
-print(resposta)
-
-#SE QUISER TESTAR A EFICIÊNCIA DESSE CÓDIGO ACESSE:
-#https://olimpiada.ic.unicamp.br/pratique/pj/2017/f1/drone/
-#obs. mas antes remova o texto dos inputs.
+#Se a soma de passageiros no bondinho for menor ou igual a 50:
+if sum(bondinho) <=50:
+    print('S')
+else:
+    print('N')
