@@ -28,15 +28,15 @@ megabytes que João tem para usar no mês N + 1.
 
 Exemplo 01:
 Entrada: 100 - 2 - 50 - 120
-Saida:   130
+Saída:   130
 
 Exemplo 02:
 Entrada: 10 - 3 - 4 - 6 - 2
-Saida:   28
+Saída:   28
 
 Exemplo 03:
 Entrada: 100 - 2 - 100 - 100
-Saida:   100
+Saída:   100
 
 '''
 
@@ -49,4 +49,4 @@ mgAcumulados = 0
 for i in range(mesesConsumo):
   mgAcumulados += quotaMensal - int(input())
 
-print("MegaBytes Acomulados: ", mgAcumulados+quotaMensal)
+print("MegaBytes Acumulados: ", mgAcumulados+quotaMensal)

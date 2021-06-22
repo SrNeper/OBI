@@ -32,12 +32,12 @@ por seu chefe ao telefone.
 
 Exemplo 01:
 Entrada: 4 - 3 - 0 - 4 - 0
-Saida: 0
+Saída: 0
 
 
 Exemplo 02:
 Entrada: 10 - 1 - 3 - 5 - 4 - 0 - 0 - 7 - 0 - 0 - 6
-Saida: 7
+Saída: 7
 
 '''
 

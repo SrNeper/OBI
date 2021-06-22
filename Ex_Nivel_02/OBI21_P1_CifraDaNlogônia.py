@@ -17,9 +17,14 @@ cifrar os documentos:
     original);
     
     2. a vogal mais próxima da consoante original no
-    alfabeto, com a regra adicional de que se a consoante original está à mesma distância de duas vogais, então a vogal mais próxima do início do alfabeto é usada. Por exemplo, se a consoante original é d, a vogal que deve
-    ser usada é e, pois esta é a vogal mais próxima; se a consoante original é c, a vogal que
-    deve ser utilizada é a, porque c está à mesma distância de a e e, e a é mais próxima do início do alfabeto.
+    alfabeto, com a regra adicional de que se a consoante
+    original está à mesma distância de duas vogais,
+    então a vogal mais próxima do início do alfabeto
+    é usada. Por exemplo, se a consoante original é D,
+    a vogal que deve ser usada é E, pois esta é a vogal
+    mais próxima; se a consoante original é C, a vogal que
+    deve ser utilizada é A, porque C está à mesma distância
+    de A e E, e A é mais próxima do início do alfabeto.
 
     3. a consoante que segue a consoante original, na ordem
     do início ao ﬁm do alfabeto. Por exemplo, se a consoante
@@ -56,15 +61,13 @@ saída:   'tuveros'
 
 Exemplo 02:
 entrada: 'rei'
-saida:   'rosei'
+saída:   'rosei'
 
 Exemplo 03:
 entrada: 'arteiro'
 saída:   'arostuveiroso'
 
 '''
-
-
 
 #Tupla com o alfabeto
 alfabeto = ( 'a',  'b',  'c',  'd',
@@ -79,5 +82,7 @@ posVogais = {'a':0, 'e':4, 'i':8, 'o':14, 'u':20}
 
 palavra = str(input())
 
-#posOriginal = palavra[0]
+posOriginal = palavra[0]
+
+print(posOriginal)
 
