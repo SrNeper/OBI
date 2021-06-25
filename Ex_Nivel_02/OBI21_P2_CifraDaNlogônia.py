@@ -82,14 +82,14 @@ def getProxConsoante(consoante:str) -> str:
   
   posConsoante = alfabeto.index(consoante)
 
-  #N é uma variavel auxiliar.
-  n = 1
-
   #Se a consoante for a letra Z, a prox é ela mesma.
   if consoante == 'z':
     proxConsoante = 'z'
   else:
     proxConsoante = ' '
+
+  #N é uma variavel auxiliar que vai nos ajudar a procurar pela proxConsoante.
+  n = 1
 
   #Repita enquanto a proxConsoante estiver vazia ou for uma vogal
   while proxConsoante in vogais or proxConsoante == ' ':
@@ -110,11 +110,50 @@ def getProxVogal(consoante:str) -> str:
   #Primeiro mapeamos a posição da letra original
   #em relação a posição das Vogais.
   mapa = sorted([posicao] + posVogais)
+
+  #Depois precisamos ver qual é a distancia dela em
+  #relação as demais.
+
+  #Se ela for a ultima do mapa
+  if mapa[-1] == posicao:
+    #A vogal mais prox é a que vem antes dela.
+    vogal = mapa.index(posicao)-1
+  
+  #Se não...
+  else:
     
-  #Depois pegamos o valor posicionado antes dela.
-  #Esse valor é a posição da vogal mais prox dela.
-  return alfabeto[mapa[mapa.index(posicao)-1]]
-    
+    #Precisamos calcular essa distancia.
+    #Distancia_A é igual a diferença entre a posição dela e a da prox vogal.
+    #Exemplo: T = 19 / U = 20 -> Distancia_A = 20-19 = 1
+    dist_a = mapa[mapa.index(posicao)+1] - posicao
+
+    #Distancia_B é igual a diferença entre a posicao dela e a da vogal anterior.
+    #Exemplo: T = 19 / O = 14 -> Distancia_B = 19-14 = 5
+    dist_b = posicao - mapa[mapa.index(posicao)-1]
+
+    #print(f'P: {posicao} | ProxV: {mapa[mapa.index(posicao)+1]} | DA', dist_a)
+    #print(f'P: {posicao} | AntV:  {mapa[mapa.index(posicao)-1]} | DB', dist_b)
+
+    #Se a distancia A for maior ou igual a que a B
+    if dist_a >= dist_b:
+      #Pegamos a posição da vogal anterior a consoante.
+      #Exemplo: C = 2 / A = 0 / E = 4
+      #dist_a = 4-2 = 2
+      #dist_b = 2-0 = 2
+      #vogal =  0 -> A
+      vogal = mapa.index(posicao)-1
+      
+    else:
+      #Caso contrario, pegamos a prox.
+      #Exemplo: T = 19 / O = 14 / U = 20
+      #dist_a = 20-19 = 1
+      #dist_b = 19-14 = 5
+      #vogal =  20 -> U
+      vogal = mapa.index(posicao)+1
+
+  #Com isso, basta encontra-la no alfabeto
+  return alfabeto[mapa[vogal]]
+
 
 def cifra(palavra:str) -> str:
 
