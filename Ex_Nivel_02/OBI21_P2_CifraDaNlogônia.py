@@ -166,14 +166,12 @@ def cifra(palavra:str) -> str:
 
     #Se essa letra não for uma vogal.
     if letra not in vogais:
-     
-      #E qual é a vogal mais próxima dela.
-      vogal = getProxVogal(letra)
-      
       #Descobre quem é a prox consoante.
       proxConsoante = getProxConsoante(letra)
-      
-      #Monta a cifra
+
+      #E qual é a vogal mais proxima dela.
+      vogal = getProxVogal(letra)
+
       cifra += letra + vogal + proxConsoante
 
     else:
@@ -187,8 +185,8 @@ alfabeto = ( 'a',  'b',  'c',  'd', #00~03
              'e',  'f',  'g',  'h', #04~07
              'i',  'j',  'k',  'l', #08~11
              'm',  'n',  'o',  'p', #12~15
-             'q',  'r',  's',  't', #16~19
-             'u',  'v',  'x',  'z') #20~23
+             'q',  'r',  's',  't', #16~18
+             'u',  'v',  'x',  'z') #19~22
 
 vogais = 'aeiou'
 
