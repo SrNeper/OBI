@@ -34,10 +34,9 @@ Saida: 5
 
 '''
 #Testes
-s = 3     #resultado da soma.
-a = 1    #inicio
-b = 10000   #final
-test = 1 
+s = 3    #resultado da soma.
+a = 10   #inicio
+b = 30   #final
 
 '''
 s = int(input('Valor Desejado: \t'))
@@ -46,168 +45,79 @@ b = int(input('Fim do Intervalo: \t'))
 '''
 numbers = []
 
-def comum():
-  #Resolução Comum - Tempo de Execução maior:
-  global numbers  
-  numbers = []
+#Combinar os digitos de 0 à 9 é mais rapido do que percorrer todos os
+#valores existentes entre A e B
+
+#Então se o S tiver apenas 1 digito
+if s<=9:
+  
+  for i in range(s+1):
+    x = str(i)
+    y = str(s-i)
+    
+    z = int(x+y)
+
+    #print(f'X: {x}, Y: {y}, Z: {z}')
+    
+    #Adicionamos todas as dezenas possiveis dentro de numbers.
+    if z>=a and z<=b:
+      numbers.append(z)
+
+#Se numbers estiver vazio, contamos do começo.
+if len(numbers) == 0:  
   
   for i in range(a,b+1):
     algorismo = str(i)
     soma = 0
-    
+     
     #Soma cada digito do algorismo informado.      
     for d in algorismo:
+      
       soma += int(d)
 
     #Se a soma, for igual ao nº informado, adiciona ele na lista.
     if soma == s:
       numbers.append(i)
 
-def alternativa():
-  global numbers
-  aux = a
+#Se não estiver, contamos a partir do ultimo numero add a ele.
+#Mas se o B for menor do que 100, todos os valores possiveis já
+#foram adicionados.
+elif b>100:
+  
+  a = numbers[-1]+1
 
-  while aux%s != 0:
-    aux-=1
-    
-  numbers = []
-  id = aux//s
-
-  while True:
-    x = s*id
+  for i in range(a,b+1):
+    algorismo = str(i)
     soma = 0
-    
-    for i in (str(x)):
-        soma += int(i)
-    
-    if soma == s and x<=b and x>=a:
-        numbers.append(x)
-    
-    id+=1
-    
-    if x>=b:
-        break
+      
+    #Soma cada digito do algorismo informado.      
+    for d in algorismo:
+      
+      soma += int(d)
 
-def sum_algorismos():
-  global numbers, b
-
-  n = s
-  d = len(str(b))
-
-  numbers, test = [], []
-
-  for i in range(d):
-    for o in range(n):
-      test.append((n-o+o*10)*10**i)
-    
-      if test[-1]>n and test[-1]<n*10:
-        x = str(test[-1])
-        
-        n1 = int(x[0]) 
-        n2 = int(x[1])
-        
-        y = (n1*100)+n2 
-        
-        test.append(y)
-        
-        if int(x[1]+x[0]) not in test or x[0] == x[1]:
-            
-          #Se os dois forem pares e maiores do que 1.
-          if n1%2 == 0 and n2%2 == 0 and n1>1:
-            A = str(n1//2)
-            B = str(n2//2)       
-                
-            if x[0] != x[1]:
-              test.append(int(str(n1)+B*2))
-              test.append(int(str(n2)+A*2))
-              test.append(int(B*2+str(n1)))
-              test.append(int(A*2+str(n2)))
-              test.append(int(A*2+B*2))
-              test.append(int(B*2+A*2))
-                
-            else:
-              test.append(int(str(n1)+B*2))
-              test.append(int(A*2+str(n2)))
-              test.append(int(A*2+B*2))
-          
-          elif n1%2 == 0 and n2%2 != 0 and n1>1:
-                A = str(n1//2)                            
-                
-                if int(A) != n1:
-                  test.append(int(A*2+str(n2)))
-                  test.append(int(str(n2)+A*2))
-                else:
-                  test.append(int(A*2+str(n2)))
-
-          elif n1%2 != 0 and n2%2 == 0 and n2>1:
-                B = str(n2//2)
-
-                if int(B) != n2:                            
-                  test.append(int(B*2+str(n1)))
-                  test.append(int(str(n1)+B*2))
-                else:
-                  test.append(int(B*2+str(n1)))
-              
-  test.append(n*10**d)
-  test.sort()
-
-  for i in test:
-    if i>=a and i<=b and i not in numbers:
+    #Se a soma, for igual ao nº informado, adiciona ele na lista.
+    if soma == s:
       numbers.append(i)
 
 
-import time
+total = len(numbers)
 
-tempo = []
-nTestes = 1
-
-if test == 0:
-  print(f'\nT0 - Nº Encontrados entre {a} & {b}\n')
-  #só funciona com b<=100 e s<=16
-  for i in range(nTestes+1):
-
-    ini = time.time()
-    sum_algorismos() 
-    fim = time.time()
+#Se houver algo em numbers
+if total != 0:
+  print()
   
-    t = fim-ini
-    tempo.append(t)
+  #Numere e exiba esses valores:
+  for i,e in enumerate(numbers):
   
-elif test == 1:
-  print(f'\nT1 - Nº Encontrados entre {a} & {b}\n')
-  for i in range(nTestes+1):
+    #Preenche com Zeros a esquerda dos valores com o nº de digitos
+    #menor que o do maior valor.
+    difA = len(str(total)) - len(str(i+1))
+    auxA = '0'*difA
+    
+    difB = len(str(numbers[-1])) - len(str(e)) 
+    auxB = '0'*difB
 
-    ini = time.time()
-    comum() 
-    fim = time.time()
-  
-    t = fim-ini
-    tempo.append(t)
+    print(f'{auxA}{i+1}º  -> {auxB}{e}')
+    
+print(f'\nTotal: {total}')
 
-elif test == 2:
-  print(f'\nT2 - Nº Encontrados entre {a} & {b}\n')
-  for i in range(nTestes+1):
-
-    ini = time.time()
-    alternativa() 
-    fim = time.time()
-  
-    t = fim-ini
-    tempo.append(t)
-
-for i, e in enumerate(numbers): 
-  if i<9 and e<9:
-    print(f'0{i+1}º: {0}{e}  -> Soma = {s} -> Multiplo ({e%s == 0})')
-  
-  elif i<9:
-    print(f'0{i+1}º: {e}  -> Soma = {s} -> Multiplo ({e%s == 0})')
-
-  elif e<9:
-    print(f'{i+1}º: 0{e}  -> Soma = {s} -> Multiplo ({e%s == 0})')
-  
-  else:
-    print(f'{i+1}º: {e} -> Soma = {s} -> Multiplo ({e%s == 0})')
-
-print(f'\nTotal: {len(numbers)}')
-print(f'Tempo: {sum(tempo)/len(tempo):0.6f} seconds')
-print(f'nº Tentativas: {nTestes}')
