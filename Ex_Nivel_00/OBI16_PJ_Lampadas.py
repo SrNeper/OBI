@@ -39,7 +39,7 @@ Exemplos:
   Saída   = 1 | 0
 02>
   Entrada = 4 | 2,1,2,2
-  Saída   = 0 | 1
+  Saída   = 1 | 1
 
 '''
 #Guarda a quantidade de vezes em que as pessoas usaram o interruptor

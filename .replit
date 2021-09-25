@@ -5,4 +5,4 @@ language = "python3"
 #P?_??       = indique o nivel e o nome do exercicio.
 
 #Roda os códigos do nivel Junior.
-run = "python Ex_Nivel_02/OBI21_P2_CifraDaNlogônia.py"
+run = "python Ex_Nivel_02/OBI21_P2_Calculo.py"

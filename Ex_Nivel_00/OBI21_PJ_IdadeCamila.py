@@ -48,4 +48,6 @@ for i in range(3):
 
 #Organiza os valores em ordem crescente
 #exibi o que estiver no meio da lista.
+#(0/1/2)
 print(sorted(idades)[1])
+
