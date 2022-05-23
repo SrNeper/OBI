@@ -34,9 +34,9 @@ Saida: 5
 
 '''
 #Testes
-s = 3    #resultado da soma.
+s = 12    #resultado da soma.
 a = 10   #inicio
-b = 30   #final
+b = 200   #final
 
 '''
 s = int(input('Valor Desejado: \t'))
@@ -63,7 +63,26 @@ if s<=9:
     if z>=a and z<=b:
       numbers.append(z)
 
-#Se numbers estiver vazio, contamos do começo.
+elif s<=18:
+  
+  aux = s-9
+
+  for i in range(aux, 10):
+    x = str(i)
+    y = str(s-i)
+    
+    z = int(x+y) 
+     
+
+    #print(f'X: {x}, Y: {y}, Z: {z}')
+    #Adicionamos todas as dezenas possiveis dentro de numbers.
+    if z>=a and z<=b:
+      numbers.append(z)
+
+
+print(numbers)
+
+#Se numbers ainda estiver vazio, contamos do começo.
 if len(numbers) == 0:  
   
   for i in range(a,b+1):

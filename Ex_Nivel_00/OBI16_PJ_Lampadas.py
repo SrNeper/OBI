@@ -32,7 +32,7 @@ Saída:
 
 Exemplos:
   | = pula uma linha.
-  , = colocados lado a lado.
+  , = na mesma linha
 
 01>
   Entrada = 3 | 1,2,2
@@ -48,14 +48,17 @@ n_acoes = int(input())
 #Lampadas apagadas
 lampadas = [False, False]
 
+#Pega todos os numeros como string
+acoes = input().replace(" ", "") #Remove os espaços, deixa só os numeros.
+
 #Inicia as interações.
 for i in range(n_acoes):
   
   #Pega a ação realizada.
-  acao = int(input())
+  a = int(acoes[i])
 
   #Se tiverem apertado o 1º interruptor
-  if acao == 1:
+  if a == 1:
     
     #Muda o status da 1º lampada.
     lampadas[0] = not lampadas[0] #True -> False // False -> True
@@ -63,6 +66,7 @@ for i in range(n_acoes):
   #Se for o 2º
   else: 
     #Muda o status da 2º lampada.
+    lampadas[0] = not lampadas[0]
     lampadas[1] = not lampadas[1]
 
 #Percorre a lista de lampadas

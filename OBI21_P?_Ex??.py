@@ -4,7 +4,8 @@ n2 = '487926' #input('Digite o 2º Valor: \t')
 
 #Deixando as strings com o mesmo tamanho.
 if len(n1) > len(n2):
-  dif = len(n1) - len(n2)
+  #n1 5 digitos - n2 6 digitos
+  dif = len(n1) - len(n2) #dif = 1
   
   #Complementando elas com 0 a esquerda.
   aux = '0'*dif
@@ -13,8 +14,9 @@ if len(n1) > len(n2):
 elif len(n1) < len(n2):
   dif = len(n2) - len(n1)
   aux = '0'*dif
-  n1 = aux+n1
+  n1 = aux+n1 #-> 069961
 
+#apaga a var aux
 del(aux)
 
 aux1 = ''
